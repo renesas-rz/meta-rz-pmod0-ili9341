@@ -129,7 +129,9 @@ There are different touch panels on the market the predefined
 calibration values may fail. the following steps explains the re-calibration:
 
 $ systemctl stop ts_uinput.service
+
 $ ts_calibrate
+
 $ systemctl start ts_uinput.service
 
 update the **pointercal_**<**size**>.<**orientation**> files inside of the   
