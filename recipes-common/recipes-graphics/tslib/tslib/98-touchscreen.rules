@@ -1,0 +1,2 @@
+SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{name}=="ADS7846 Touchscreen", SYMLINK+="input/ts", TAG+="systemd" ENV{SYSTEMD_WANTS}="ts_uinput.service"
+SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{name}=="ts_uinput", SYMLINK+="input/ts_uinput"

@@ -1,0 +1,33 @@
+From ab778b7d023540c88077680d8b7b87ee396efe95 Mon Sep 17 00:00:00 2001
+From: Bernd Hollensteiner <Bernd.Hollensteiner@renesas.com>
+Date: Mon, 30 Jan 2023 17:38:46 +0100
+Subject: [PATCH] EVK PMOD0 RSPI1 ILI9341 move status  before display and touch
+
+---
+ arch/arm64/boot/dts/renesas/rzg2ul-smarc.dtsi | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/renesas/rzg2ul-smarc.dtsi b/arch/arm64/boot/dts/renesas/rzg2ul-smarc.dtsi
+index 0acaa6536936..2cabd053601d 100644
+--- a/arch/arm64/boot/dts/renesas/rzg2ul-smarc.dtsi
++++ b/arch/arm64/boot/dts/renesas/rzg2ul-smarc.dtsi
+@@ -833,6 +833,8 @@ &spi1 {
+ 	dmas = <&dmac 0x2e99>, <&dmac 0x2e9a>;
+ 	dma-names = "tx", "rx";
+ 
++    status = "okay";
++
+     cs-gpios = <0>,
+                <&pinctrl RZG2L_GPIO(1, 4) 0>;                                  /* P1_4 */
+ 
+@@ -870,6 +872,6 @@ tsc2046@1 {
+             };
+ 
+ #endif
+-	status = "okay";
++	
+ };
+ #endif
+-- 
+2.25.1
+

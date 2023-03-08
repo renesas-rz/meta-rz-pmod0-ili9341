@@ -1,0 +1,61 @@
+From 1cb04f9bf18a2e52c3c6b6bfed4b39b311f3076a Mon Sep 17 00:00:00 2001
+From: Bernd Hollensteiner <Bernd.Hollensteiner@renesas.com>
+Date: Wed, 15 Feb 2023 16:26:32 +0100
+Subject: [PATCH] add command line interface for device selection
+
+---
+ rect.c | 28 ++++++++++++++++++++++++++--
+ 1 file changed, 26 insertions(+), 2 deletions(-)
+
+diff --git a/rect.c b/rect.c
+index d915c72..7871843 100644
+--- a/rect.c
++++ b/rect.c
+@@ -202,6 +202,12 @@ void fill_screen(void *fbmem)
+ 	}
+ }
+ 
++void show_help(char **argv)
++{
++	printf("Usage: %s -f fbnum\n",argv[0]);
++	printf("Where -f fbnum   = framebuffer device number\n");
++}
++
+ int main(int argc, char **argv)
+ {
+ 	int fd;
+@@ -209,11 +215,29 @@ int main(int argc, char **argv)
+ 	int i;
+ 	void *readbuf;
+ 	unsigned readbuf_size;
+-
++	char str[64];
++	int fb_num = 0;
++	int opt;
++            
+ 	printf("rect %d.%d.%d (%s)\n", VERSION, PATCHLEVEL, SUBLEVEL,
+ 		VERSION_NAME);
+ 
+-	fd = open_fb("/dev/fb0");
++
++	while ((opt = getopt(argc, argv, "hf:")) != -1) {
++		switch (opt) {
++		case 'f':
++			fb_num = atoi(optarg);
++			break;
++		case 'h':
++			show_help(argv);
++			return 0;
++		default:
++			exit(EXIT_FAILURE);
++		}
++	}
++    
++	sprintf(str, "/dev/fb%d", fb_num);    
++	fd = open_fb(str);
+ 
+ 	FBCTL(FBIOGET_VSCREENINFO, &var);
+ 	FBCTL(FBIOGET_FSCREENINFO, &fix);
+-- 
+2.25.1
+

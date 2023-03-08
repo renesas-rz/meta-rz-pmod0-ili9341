@@ -1,0 +1,56 @@
+From ac7b312477cec7d9196860f124a15fa7d34c67fe Mon Sep 17 00:00:00 2001
+From: Bernd Hollensteiner <Bernd.Hollensteiner@renesas.com>
+Date: Mon, 23 Jan 2023 11:30:52 +0100
+Subject: [PATCH 2/5] EVK PMOD0 RSPI1 ILI9341 add touch support
+
+---
+ .../boot/dts/renesas/rz-smarc-common.dtsi     | 26 ++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
+index bc64def5f..afbb99274 100644
+--- a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
++++ b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
+@@ -262,7 +262,8 @@ &spi1 {
+ 	dmas = <&dmac 0x2e99>, <&dmac 0x2e9a>;
+ 	dma-names = "tx", "rx";
+ 
+-    cs-gpios = <0> ;
++    cs-gpios = <0>,
++               <&pinctrl RZG2L_GPIO(43, 1) 0>;                                  /* P43_1 */
+ 
+ 	status = "okay";
+ 
+@@ -276,6 +277,29 @@ ili9341@0{
+         reset-gpios = <&pinctrl RZG2L_GPIO(43, 2) GPIO_ACTIVE_LOW>;
+         dc-gpios = <&pinctrl RZG2L_GPIO(41, 0) GPIO_ACTIVE_HIGH>;
+     };
++    
++    /* CONFIG_TOUCHSCREEN_ADS7846=y */
++    tsc2046@1 {
++                reg = <1>;                                                      /* CS3 PMOD0 pin */
++                compatible = "ti,tsc2046";
++                interrupt-parent = <&pinctrl>;
++                interrupts = <RZG2L_GPIO(43, 0) IRQ_TYPE_EDGE_FALLING>;         /* P43_0 */
++                spi-max-frequency = <1000000>;
++                pendown-gpio = <&pinctrl RZG2L_GPIO(43, 0) GPIO_ACTIVE_LOW>;    /* P43_0 */
++                vcc-supply = <&reg_3p3v>;
++
++                ti,x-min = /bits/ 16 <0>;
++                ti,x-max = /bits/ 16 <4095>;
++                ti,y-min = /bits/ 16 <0>;
++                ti,y-max = /bits/ 16 <4095>;
++                ti,x-plate-ohms = /bits/ 16 <40>;
++                ti,y-plate-ohms = /bits/ 16 <40>;
++                ti,pressure-max = /bits/ 16 <255>;
++                ti,swap-xy  ;
++
++                wakeup-source;
++            };
++
+ };
+ #endif
+ 
+-- 
+2.25.1
+

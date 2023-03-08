@@ -1,0 +1,13 @@
+diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+index 0cf2eada8004..e168c3717b1f 100755
+--- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
++++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
+@@ -277,6 +277,8 @@ spi1: spi@1004b000 {
+ 				     <448 IRQ_TYPE_LEVEL_HIGH>,
+ 				     <449 IRQ_TYPE_LEVEL_HIGH>;
+ 			interrupt-names = "error", "rx", "tx";
++			dmas = <&dmac 0x2e99>, <&dmac 0x2e9a>;
++			dma-names = "tx", "rx";
+ 			clocks = <&cpg CPG_MOD R9A07G043F_RSPI1_CLKB>;
+ 			resets = <&cpg R9A07G043F_RSPI1_RST>;
+ 			power-domains = <&cpg>;

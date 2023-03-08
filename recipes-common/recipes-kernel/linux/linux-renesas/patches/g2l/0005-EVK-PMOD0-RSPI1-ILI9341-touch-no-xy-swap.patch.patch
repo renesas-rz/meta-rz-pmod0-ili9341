@@ -1,0 +1,25 @@
+From 4b8f7d906e225a2e1f87f52e6c5f13e297b312e7 Mon Sep 17 00:00:00 2001
+From: Bernd Hollensteiner <Bernd.Hollensteiner@renesas.com>
+Date: Mon, 23 Jan 2023 11:36:32 +0100
+Subject: [PATCH 5/5] EVK PMOD0 RSPI1 ILI9341 touch no xy swap.patch
+
+---
+ arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
+index 7d6d7be1f..286844f88 100644
+--- a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
++++ b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
+@@ -295,7 +295,7 @@ tsc2046@1 {
+                 ti,x-plate-ohms = /bits/ 16 <40>;
+                 ti,y-plate-ohms = /bits/ 16 <40>;
+                 ti,pressure-max = /bits/ 16 <255>;
+-                ti,swap-xy  ;
++                /* ti,swap-xy  ; */
+ 
+                 wakeup-source;
+             };
+-- 
+2.25.1
+

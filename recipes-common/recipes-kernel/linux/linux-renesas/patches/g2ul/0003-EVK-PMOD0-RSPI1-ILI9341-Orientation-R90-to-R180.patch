@@ -1,0 +1,25 @@
+From 9b8ec72e09c5dbc17ab8c4825ecc0fd1d6effac4 Mon Sep 17 00:00:00 2001
+From: Bernd Hollensteiner <Bernd.Hollensteiner@renesas.com>
+Date: Mon, 30 Jan 2023 16:17:53 +0100
+Subject: [PATCH 3/4] EVK PMOD0 RSPI1 ILI9341 Orientation R90 to R180
+
+---
+ arch/arm64/boot/dts/renesas/rzg2ul-smarc.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/renesas/rzg2ul-smarc.dtsi b/arch/arm64/boot/dts/renesas/rzg2ul-smarc.dtsi
+index 3970d77dde21..11eac89f4462 100644
+--- a/arch/arm64/boot/dts/renesas/rzg2ul-smarc.dtsi
++++ b/arch/arm64/boot/dts/renesas/rzg2ul-smarc.dtsi
+@@ -841,7 +841,7 @@ ili9341@0{
+         reg = <0>;
+         bgr;
+         spi-max-frequency = <32000000>;
+-        rotate = <90>;
++        rotate = <180>;
+         buswidth = <8>;
+         reset-gpios = <&pinctrl RZG2L_GPIO(1, 0) GPIO_ACTIVE_LOW>;
+         dc-gpios = <&pinctrl RZG2L_GPIO(1, 3) GPIO_ACTIVE_HIGH>;
+-- 
+2.25.1
+

@@ -1,0 +1,10 @@
+[Unit]
+Description=touchscreen input
+BindsTo=dev-input-ts.device
+After=dev-input-ts.device
+RequiresMountsFor=/etc/ts.env
+
+[Service]
+Type=forking
+EnvironmentFile=/etc/ts.env
+ExecStart=/usr/bin/ts_uinput -d

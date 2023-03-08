@@ -1,0 +1,23 @@
+From b0cb6c03124fd011570bea725629b5a5180ecddd Mon Sep 17 00:00:00 2001
+From: Bernd Hollensteiner <Bernd.Hollensteiner@renesas.com>
+Date: Mon, 9 Jan 2023 17:08:11 +0100
+Subject: [PATCH] touch display dtsi tsc2046 remove swap-xy for 0 and 180 rot
+
+---
+ arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi b/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
+index d8d7189639d6..195e733800a7 100755
+--- a/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
++++ b/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
+@@ -677,5 +677,5 @@ tsc2046@1 {
+ 			ti,pressure-max = /bits/ 16 <255>;
+-			ti,swap-xy  ;
++			/* ti,swap-xy  ; */
+ 
+ 			wakeup-source;
+ 		};
+-- 
+2.25.1
+

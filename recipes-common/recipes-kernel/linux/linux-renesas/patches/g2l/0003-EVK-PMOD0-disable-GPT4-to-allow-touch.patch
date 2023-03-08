@@ -1,0 +1,32 @@
+From a8970c7f766be1e3076e7ec5165a5bca103ca7ae Mon Sep 17 00:00:00 2001
+From: Bernd Hollensteiner <Bernd.Hollensteiner@renesas.com>
+Date: Mon, 23 Jan 2023 15:38:59 +0100
+Subject: [PATCH 3/5]  EVK PMOD0 disable GPT4 to allow touch
+
+---
+ arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi b/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
+index af34d5e52..2209f12a8 100644
+--- a/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
++++ b/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
+@@ -453,6 +453,7 @@ &poegd {
+ };
+ #endif
+ 
++/*
+ &gpt4 {
+ 	pinctrl-0 = <&gpt4_pins>;
+ 	pinctrl-names = "default";
+@@ -462,6 +463,7 @@ &gpt4 {
+ #endif
+ 	status = "okay";
+ };
++*/
+ 
+ &ehci0 {
+ 	memory-region = <&global_cma>;
+-- 
+2.25.1
+

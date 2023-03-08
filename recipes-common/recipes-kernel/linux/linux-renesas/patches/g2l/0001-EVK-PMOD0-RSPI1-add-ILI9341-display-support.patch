@@ -1,0 +1,37 @@
+From 3a7d98b1d5462c8c05dfb1e369dc18dcb4d406c8 Mon Sep 17 00:00:00 2001
+From: Bernd Hollensteiner <Bernd.Hollensteiner@renesas.com>
+Date: Mon, 23 Jan 2023 11:21:00 +0100
+Subject: [PATCH 1/5 EVK PMOD0 RSPI1 add ILI9341 display support
+
+---
+ arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
+index 5367cb463..bc64def5f 100644
+--- a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
++++ b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
+@@ -262,7 +262,20 @@ &spi1 {
+ 	dmas = <&dmac 0x2e99>, <&dmac 0x2e9a>;
+ 	dma-names = "tx", "rx";
+ 
++    cs-gpios = <0> ;
++
+ 	status = "okay";
++
++	ili9341@0{
++	    compatible = "ilitek,ili9341";
++        reg = <0>;
++        bgr;
++        spi-max-frequency = <32000000>;
++        rotate = <90>;
++        buswidth = <8>;
++        reset-gpios = <&pinctrl RZG2L_GPIO(43, 2) GPIO_ACTIVE_LOW>;
++        dc-gpios = <&pinctrl RZG2L_GPIO(41, 0) GPIO_ACTIVE_HIGH>;
++    };
+ };
+ #endif
+ 
+-- 
+2.25.1
+

@@ -1,0 +1,20 @@
+diff --git a/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi b/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
+index b84945b24cab..eed9544497cb 100755
+--- a/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
++++ b/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
+@@ -605,4 +605,15 @@ &spi1 {
+         pinctrl-names = "default";
+ #endif
+         status = "okay";
++
++	ili9341@0{
++		compatible = "ilitek,ili9341";
++		reg = <0>;
++		bgr;
++		spi-max-frequency = <32000000>;
++		rotate = <90>;
++		buswidth = <8>;
++		reset-gpios = <&pinctrl RZG2L_GPIO(1, 0) GPIO_ACTIVE_LOW>;
++		dc-gpios = <&pinctrl RZG2L_GPIO(1, 3) GPIO_ACTIVE_HIGH>;
++	};
+ };
