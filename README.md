@@ -45,21 +45,25 @@ build/conf/local.conf file
 
 
 \# long connector line is at the bottom of the display pcb
+
 IS_PMOD0_ILI9341_ROT = "0"
 
 OR
 
 \# long connector line is at the left of the display pcb
+
 IS_PMOD0_ILI9341_ROT = "90"
 
 OR
 
 \# long connector line is at the top of the display pcb
+
 IS_PMOD0_ILI9341_ROT = "180"
 
 OR
 
 \# long connector line is at the right of the display pcb
+
 IS_PMOD0_ILI9341_ROT = "270"
 
 
