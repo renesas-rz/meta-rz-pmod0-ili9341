@@ -133,7 +133,7 @@ $ ts_calibrate
 $ systemctl start ts_uinput.service
 
 update the **pointercal_**<**size**>.<**orientation**> files inside of the   
-**meta-rz-pmod0-ili9341/recipes-common/recipes-graphics/tslib/tslib **   
+**meta-rz-pmod0-ili9341/recipes-common/recipes-graphics/tslib/tslib**   
 directory based on the data in the **/etc/pointercal** directory.  
 Please update the calibration data for all four orientations. A rotation change  
 will require an rebuild with adapted IS_PMOD0_ILI9341_ROT entries.
