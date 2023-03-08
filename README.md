@@ -39,33 +39,20 @@ or add the following to the build/conf/bblayers.conf
 
       BBLAYERS += "${TOPDIR}/../meta-rz-pmod0-ili9341 "
 
-In addition please define the basic display rotation to the
+In addition please define the basic display rotation and   
+the display size in the
 
 build/conf/local.conf file
 
-
-\# long connector line is at the bottom of the display pcb
-
-IS_PMOD0_ILI9341_ROT = "0"
-
-OR
-
-\# long connector line is at the left of the display pcb
-
-IS_PMOD0_ILI9341_ROT = "90"
-
-OR
-
-\# long connector line is at the top of the display pcb
-
+\# supported rotation: 0, 90, 180, 270
+  
 IS_PMOD0_ILI9341_ROT = "180"
 
-OR
+\# supported display size 2.4 or 2.8
+  
+IS_PMOD0_ILI9341_SIZE = "2.8"
 
-\# long connector line is at the right of the display pcb
-
-IS_PMOD0_ILI9341_ROT = "270"
-
+  
 
 For disabling the CONSOLE output during start the recommended way is to
 find out the available /dev/fb? devices and to map the output to a not existing device:
