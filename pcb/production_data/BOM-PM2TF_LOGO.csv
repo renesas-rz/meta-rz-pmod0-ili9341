@@ -1,0 +1,9 @@
+Comment,Designator,Footprint,LCSC
+ILI-3941-Touch,ILI1,ili9341pcb_pin_array_14x1,C124407
+1R0,R1,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,C304860
+PMOD-Device-x2-Type-2A-Expanded-SPI-Renesas,PMOD1,pmod_pin_array_6x2,C492434
+MountingHole,H3,MountingHole_3.2mm_M3_684y,
+V YYYYMMDD,N1,Label_Generic,
+MountingHole,H4,MountingHole_3.2mm_M3_684y,
+V1.2 20230309,N2,Label_version,
+PM2TF Adapter,N3,Label_Generic,

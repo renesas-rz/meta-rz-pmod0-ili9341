@@ -1,0 +1,4 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+ILI1,ILI-3941-Touch,ili9341pcb_pin_array_14x1,7.62,-16.51,0.0,top
+PMOD1,PMOD-Device-x2-Type-2A-Expanded-SPI-Renesas,pmod_pin_array_6x2,-0.8255,-31.75,0.0,top
+R1,1R0,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,2.54,-3.81,90.0,top
