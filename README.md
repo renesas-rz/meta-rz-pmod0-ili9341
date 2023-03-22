@@ -1,14 +1,14 @@
-# This README file describes the meta-rz-pmod0-ili9341 layer.  
-
+# meta-rz-pmod0-ili9341  
+yocto meta layer for ili9341 + touch support  
 Please see the corresponding sections below for details.  
   
 Dependencies  
 ============  
   
 The following meta packages are required:  
-poky  
-meta-renesas  
-meta-openembedded  
+>poky  
+>meta-renesas  
+>meta-openembedded  
   
 **Supported boards:**  
   
@@ -140,3 +140,13 @@ directory based on the data in the **/etc/pointercal** directory.
 Please update the calibration data for all four orientations. A rotation change  
 will require an rebuild with adapted IS_PMOD0_ILI9341_ROT entries.  
   
+**frame buffer device mapping:**
+
+| EVK    | meta-rz-pmod0-ili9341| primary display| ili9341 display  |
+|--------|----------------------|----------------|------------------|
+| RZG2L  | used                 | /dev/fb1       | /dev/fb0         |
+| RZV2L  | used                 | /dev/fb1       | /dev/fb0         |
+| RZG2UL | used                 | N/A            | /dev/fb0         |
+| RZFIVE | used                 | N/A            | /dev/fb0         |  
+  
+.
